@@ -26,7 +26,7 @@ func NewHTTPPool(self string) *HTTPPool {
 
 // Log info with server name
 func (p *HTTPPool) Log(format string, v ...interface{}) {
-	log.Fatalf("[Server %s] %s", p.self, fmt.Sprintf(format, v...))
+	log.Printf("[Server %s] %s", p.self, fmt.Sprintf(format, v...))
 }
 
 // ServeHTTP handle all http requests
