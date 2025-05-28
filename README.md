@@ -25,10 +25,33 @@ A lightweight distributed caching system implemented in Go, designed for perform
 
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/yourusername/go-distributed-cache.git
-   cd goCacheKit/goCache
+   git clone https://github.com/jasonxiexy/goCacheKit.git
+   cd goCacheKit
+   ```
 
 2. **Run test in each block**
    ```bash
    cd xxx
    go test -v
+   ```
+
+3. **Test HTTP method to interact with Cache**
+   
+   In one terminal:
+   ```bash
+   go run main.go
+   ```
+   Another terminal:
+   ```bash
+   curl http://localhost:9999/_gocache/scores/Tom
+   curl http://localhost:9999/_gocache/scores/kkk
+   ```
+   And expected results:
+   ```bash
+   PS D:\goCacheKit> go run main.go
+   2025/05/28 15:31:11 gocache is running at localhost:9999
+   2025/05/28 15:31:16 [Server localhost:9999] GET /_gocache/scores/Tom
+   2025/05/28 15:31:16 [SlowDB] search key Tom
+   2025/05/28 15:32:06 [Server localhost:9999] GET /_gocache/scores/kkk
+   2025/05/28 15:32:06 [SlowDB] search key kkk
+   ```
